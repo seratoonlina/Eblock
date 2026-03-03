@@ -4,96 +4,104 @@
     "maps": [
         {
             "name": "PlayerMovement",
-            "id": "f855dcda-0bb2-4261-b96f-1b0268f6b384",
+            "id": "b8294ff4-9723-493c-824a-b17c89c62fe9",
             "actions": [
                 {
-                    "name": "movement",
+                    "name": "Movement",
                     "type": "Value",
-                    "id": "48f945ae-643a-4d33-8bc9-d344a8f89b44",
+                    "id": "417fb080-858f-4de9-b1f6-0f5aba6201fb",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "RUN",
-                    "type": "Value",
-                    "id": "fbb13d04-a571-45ba-9a0a-c826597449dc",
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "404d4721-79eb-4e24-8e6f-f8015718b0fa",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Catch",
+                    "type": "Button",
+                    "id": "38342192-d327-4c37-9fc6-4b3635154623",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "62e6a7e1-0149-4a86-879e-beddf09be899",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
-                    "name": "2D Vector",
-                    "id": "83db70e6-d8ab-4ad6-b830-b9624482eb59",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "5a5a1366-6b68-4821-9372-f1c492220403",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "movement",
-                    "isComposite": true,
+                    "groups": ";gamepad",
+                    "action": "Movement",
+                    "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "93287800-e324-4eee-8229-9abed3e872b0",
-                    "path": "<Keyboard>/w",
+                    "name": "",
+                    "id": "11085ae5-5f22-4255-9c2b-7c6ca5f5f7df",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "movement",
+                    "groups": ";gamepad",
+                    "action": "Shoot",
                     "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "b8f8fd5e-9d8b-4443-806a-a183199c1164",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "e87d9de5-ade3-4c2a-afd3-268a76f3b710",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "bafc46b8-158a-4799-a36f-2875de65f1d5",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "movement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "fa1aa306-a975-4267-a618-67a8f2d09a7c",
-                    "path": "<Keyboard>/shift",
+                    "id": "d262bff6-db1e-4eb5-a12e-9240ce5217ff",
+                    "path": "<XInputController>/buttonEast",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "RUN",
+                    "groups": ";gamepad",
+                    "action": "Catch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8e185b4a-aae3-4bee-9c16-8219c952a272",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";gamepad",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "gamepad",
+            "bindingGroup": "gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

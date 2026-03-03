@@ -1,75 +1,87 @@
 
+using System.Net.Http.Headers;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements.Experimental;
+using static UnityEngine.InputSystem.InputAction;
 
 public class player1Script : MonoBehaviour
 {
-    private Player1 player1;
+    public ParticleSystem effect1;
+    public ParticleSystem effect2;
     Vector2 controllers;
+    Vector2 rotateInput;
     public Rigidbody controlllerPlayer1;
-    bool running = false;
+    bool running;
     public float speed = 3.5f;
     float hitForce = 2f;
     Rigidbody rbBall;
     Vector3 arah;
-    Collision collisionBall;
+    public catchBall GetBall;
+
     void Start()
     {
+        if (GetBall == null)
+        {
+            GetBall = GetComponent<catchBall>();
+        }
     }
 
-    private void Awake()
+    public void OnMovement(InputAction.CallbackContext context)
     {
-        player1 = new Player1();
-        player1.PlayerMovement.movement.performed += ctx => controllers = ctx.ReadValue<Vector2>();
-        player1.PlayerMovement.movement.canceled += ctx => controllers = Vector2.zero;
-        player1.PlayerMovement.RUN.performed += ctx => running = true;
-        player1.PlayerMovement.RUN.canceled += ctx => running = false;
+        controllers = context.ReadValue<Vector2>();
+        Debug.Log("control" + controllers);
     }
 
-    private void OnEnable()
+
+
+    public void OnRun(InputAction.CallbackContext context)
     {
-        player1.Enable();
+        running = context.performed;
     }
+
+    public void shootBall()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {
-        Vector3 move = transform.right * controllers.x + transform.forward * controllers.y;
-        Vector3 moveRigid = controlllerPlayer1.position + move * speed * Time.deltaTime;
-        controlllerPlayer1.MovePosition(moveRigid);
+        Vector3 direction = new Vector3(controllers.x, 0f, controllers.y);
+        controlllerPlayer1.MovePosition(controlllerPlayer1.position + direction * speed * Time.deltaTime);
 
-        if (rbBall != null && Input.GetKeyDown(KeyCode.E))
+        if (direction.magnitude > 0.1f)
         {
-            arah = collisionBall.contacts[0].normal * -1;
-            rbBall.AddForce(arah * hitForce, ForceMode.Impulse);
+            Quaternion rotationss = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotationss, 20f * Time.deltaTime);
         }
 
-        if (running == true)
+        if (running)
+        {
+            effectPlay();
+            speed = 8f;
+        }
+        else if (running && GetBall.Catched)
         {
             speed = 6f;
         }
         else
         {
+            effectStop();
             speed = 3.5f;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    void effectPlay()
     {
-        if (collision.gameObject.name == "ball")
-        {
-                rbBall = collision.gameObject.GetComponent<Rigidbody>();
-                collisionBall = collision;
-        }
+        effect1.Play();
+        effect2.Play();   
     }
-
-    private void OnCollisionExit(Collision collision)
+    void effectStop()
     {
-        if (collision.gameObject.name == "ball")
-        {
-            rbBall = null;
-            collisionBall = null;
-        }
+        effect1.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+        effect2.Stop(true, ParticleSystemStopBehavior.StopEmitting);   
     }
-
-
 }
