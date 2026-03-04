@@ -10047,6 +10047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::catchBall
   Catched: 0
+  onGoal: 0
   catchPoint: {fileID: 9110527253302490697}
   IsHoldingKick: 0
 --- !u!1 &4338867795581959238
@@ -10075,7 +10076,7 @@ Transform:
   m_GameObject: {fileID: 4338867795581959238}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.000000059605, y: -0.654, z: 1.23}
+  m_LocalPosition: {x: -0, y: -0.654, z: 1.248}
   m_LocalScale: {x: 0.6126619, y: 0.6126619, z: 0.6126619}
   m_ConstrainProportionsScale: 0
   m_Children: []

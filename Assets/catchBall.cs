@@ -8,9 +8,11 @@ public class catchBall : MonoBehaviour
 {
     Rigidbody ball;
     public bool Catched;
+    public bool onGoal = false;
     public Transform catchPoint;
     public bool IsHoldingKick = false;
-    public bool isGoal;
+    bool ShootingCoolDown = false;
+    public Transform SpawnPoint;
 
     void Start()
     {
@@ -25,14 +27,13 @@ public class catchBall : MonoBehaviour
         if (collision.rigidbody != null && collision.rigidbody.GetComponent<balls>())
         {
             Rigidbody newBall = collision.rigidbody;
+            catchPoint.GetComponent<BoxCollider>().isTrigger = true;
 
             if (newBall.transform.parent != null)
             {
                 newBall.transform.SetParent(null);
                 newBall.isKinematic = false;
             }
-
-            catchPoint.GetComponent<BoxCollider>().isTrigger = true;
 
             ball = newBall;
             ball.transform.SetParent(catchPoint);
@@ -44,6 +45,12 @@ public class catchBall : MonoBehaviour
 
     void Update()
     {
+        if (onGoal == true)
+        {
+
+            StartCoroutine(ResetTriggers(0.2f));
+        
+        }
         if (ball.transform.parent == catchPoint)
         {
             Catched = true;
@@ -63,51 +70,39 @@ public class catchBall : MonoBehaviour
             return;
         }
 
-        if (isGoal == true)
-        {
-            ball = null;
-            StartCoroutine(ResetTriggers(0.4f));
-        }
+        
     }
 
     public void OnShoot(InputAction.CallbackContext value)
     {
-        if (value.performed)
+        if (value.performed && ball != null)
         {
             IsHoldingKick = true;
             shootBall();
-        }
-
-        if (value.canceled)
-        {
-            IsHoldingKick = false;
         }
     }
 
     void shootBall()
     {
-        if (ball != null)
+        if (ball != null && ShootingCoolDown == false)
         {
             catchPoint.GetComponent<BoxCollider>().isTrigger = true;
-
             ball.transform.SetParent(null);
             ball.isKinematic = false;
-            ball.AddForce(catchPoint.forward * 2.7f, ForceMode.Impulse);
+            ball.AddForce(catchPoint.forward * 20f, ForceMode.Impulse);
             ball.AddForce(Physics.gravity * -1f, ForceMode.Acceleration);
-
+            Catched = false;
             ball = null;
+            ShootingCoolDown = true;
 
-            StartCoroutine(ResetTrigger(0.4f));
-        }
-        if (ball == null)
-        {
-            StartCoroutine(ResetTriggers(0.4f));
+            StartCoroutine(ResetTrigger(2f));
         }
     }
 
     IEnumerator ResetTrigger(float cooldown)
     {
         yield return new WaitForSeconds(cooldown);
+        ShootingCoolDown = false;
 
         if (ball == null)
         {
@@ -117,21 +112,19 @@ public class catchBall : MonoBehaviour
 
     IEnumerator ResetTriggers(float cooldown)
     {
+        ball.isKinematic = false;
+        ball.transform.SetParent(null);
+        catchPoint.GetComponent<BoxCollider>().isTrigger = false;
+        ball.transform.position = SpawnPoint.position;
         yield return new WaitForSeconds(cooldown);
+        onGoal = false;
+
 
         if (ball == null)
         {
+            onGoal = false;
             catchPoint.GetComponent<BoxCollider>().isTrigger = false;
         }
     }
 
-    IEnumerator ResetTriggerss(float cooldown)
-    {
-        yield return new WaitForSeconds(cooldown);
-
-        if (ball == null)
-        {
-            catchPoint.GetComponent<BoxCollider>().isTrigger = false;
-        }
-    }
 }

@@ -1,29 +1,56 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class goal2 : MonoBehaviour
 {
     public float score = 0;
-    public Transform Spawn;
     Transform balls;
+    public catchBall onGoals;
+    public catchBall onGoalss;
+    public Transform Spawn;
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.transform.GetComponent<balls>())
+        balls ballScript = other.GetComponent<balls>();
+
+        if (ballScript != null)
         {
             score += 1;
-            balls = other.gameObject.transform; 
+
+            balls = other.transform;
             balls.position = Spawn.position;
-            StartCoroutine(resetBallPosition(0.2f));
+
+            StartCoroutine(resetBallPosition(0.05f));
         }
     }
 
     IEnumerator resetBallPosition(float delay)
     {
-        balls.GetComponent<TrailRenderer>().emitting = false;
+        if (balls == null) yield break;
+
+        onGoals.onGoal = true;
+        onGoalss.onGoal = true;
+
+        TrailRenderer trail = balls.GetComponent<TrailRenderer>();
+        if (trail != null)
+            trail.emitting = false;
+
+        balls.SetParent(null);
+
+        Rigidbody rb = balls.GetComponent<Rigidbody>();
+        if (rb != null)
+            rb.isKinematic = false;
+
         yield return new WaitForSeconds(delay);
-        balls.GetComponent<TrailRenderer>().emitting = true;
-        
+
+        onGoals.onGoal = false;
+        onGoalss.onGoal = false;
+
+        if (trail != null)
+            trail.emitting = true;
+
+        balls = null;
     }
 }
+

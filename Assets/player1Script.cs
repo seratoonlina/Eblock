@@ -58,19 +58,20 @@ public class player1Script : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, rotationss, 20f * Time.deltaTime);
         }
 
-        if (running)
+        if (running && GetBall.Catched == true)
         {
             effectPlay();
-            speed = 8f;
+            speed = 5f;
         }
-        else if (running && GetBall.Catched)
+        else if (running && GetBall.Catched == false)
         {
-            speed = 6f;
+            effectPlay();
+            speed = 7f;
         }
         else
         {
             effectStop();
-            speed = 3.5f;
+            speed = 3f;
         }
     }
 
