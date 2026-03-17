@@ -70,6 +70,12 @@ public class catchBall : MonoBehaviour
             return;
         }
 
+        if (ball == null)
+        {
+            catchPoint.GetComponent<BoxCollider>().isTrigger = false;
+            onGoal = false;
+        }
+
         
     }
 
@@ -122,8 +128,8 @@ public class catchBall : MonoBehaviour
 
         if (ball == null)
         {
-            onGoal = false;
             catchPoint.GetComponent<BoxCollider>().isTrigger = false;
+            onGoal = false;
         }
     }
 

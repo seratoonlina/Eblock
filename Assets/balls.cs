@@ -17,6 +17,7 @@ public class balls : MonoBehaviour
             Player2.position = Spawn2.position;
             gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 1f, ForceMode.Impulse);
             transform.position = LocationBall.position;
+            transform.SetParent(null);
         }
     }
 }
