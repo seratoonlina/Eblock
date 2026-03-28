@@ -4816,7 +4816,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &3801834486203876934
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4862,6 +4862,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -4893,7 +4894,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!1 &2126791191741204927
 GameObject:
   m_ObjectHideFlags: 0
@@ -9710,7 +9710,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &7057597037172817301
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9756,6 +9756,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -9787,7 +9788,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!1 &3691886757176185292
 GameObject:
   m_ObjectHideFlags: 0
@@ -9804,6 +9804,7 @@ GameObject:
   - component: {fileID: 5205299961387261014}
   - component: {fileID: 8339404755947509677}
   - component: {fileID: 3126340983571149465}
+  - component: {fileID: -2736215265782194225}
   m_Layer: 3
   m_Name: playerOne
   m_TagString: Untagged
@@ -9886,6 +9887,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2217522505246223680
 MonoBehaviour:
@@ -10050,6 +10052,23 @@ MonoBehaviour:
   onGoal: 0
   catchPoint: {fileID: 9110527253302490697}
   IsHoldingKick: 0
+  SpawnPoint: {fileID: 0}
+--- !u!114 &-2736215265782194225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3691886757176185292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 470f838d583ef1243aab89bc53872712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::spawnScript
+  spawnPoint1: {fileID: 0}
+  spawnPoint2: {fileID: 0}
+  prefrabPlayer1: {fileID: 0}
+  prefrabPlayer2: {fileID: 0}
 --- !u!1 &4338867795581959238
 GameObject:
   m_ObjectHideFlags: 0
@@ -10191,6 +10210,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8898017255964552491
 GameObject:
