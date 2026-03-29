@@ -29,12 +29,5 @@ public class gamePadWarning : MonoBehaviour
             }
         }
     }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

@@ -25,12 +25,14 @@ public class SpawnManager : MonoBehaviour
                 {
                     player1 = SpawnPlayer(gamepad, spawnPoint1);
                     p1Spawned = true;
+                    player1.GetComponent<Renderer>().material.color = Color.red;
                 }
                 // Player 2
                 else if (!p2Spawned && gamepad != player1.GetComponent<PlayerInput>().devices[0])
                 {
                     player2 = SpawnPlayer(gamepad, spawnPoint2);
                     p2Spawned = true;
+                    player2.GetComponent<Renderer>().material.color = Color.blue;
                 }
             }
         }
