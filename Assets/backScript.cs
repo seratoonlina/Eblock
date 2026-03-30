@@ -6,11 +6,6 @@ public class backScript : MonoBehaviour
 {
     InputMenu menu;
     bool OnBack;
-    void Start()
-    {
-        
-    }
-
     void OnEnable()
     {
         menu.Enable();
@@ -29,4 +24,5 @@ public class backScript : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
+
 }

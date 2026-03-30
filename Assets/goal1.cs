@@ -21,6 +21,8 @@ public class goal1 : MonoBehaviour
             balls = other.transform;
             balls.position = Spawn.position;
 
+            FindAnyObjectByType<SpawnManager>().ResetPlayers();
+
             StartCoroutine(resetBallPosition(0.05f));
         }
     }

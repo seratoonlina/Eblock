@@ -2,7 +2,6 @@
 using System.Net.Http.Headers;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements.Experimental;
 using static UnityEngine.InputSystem.InputAction;
 
 public class player1Script : MonoBehaviour
@@ -18,6 +17,7 @@ public class player1Script : MonoBehaviour
     Rigidbody rbBall;
     Vector3 arah;
     public catchBall GetBall;
+    
 
     void Start()
     {
