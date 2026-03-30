@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 77313229}
   - component: {fileID: 77313228}
   - component: {fileID: 77313227}
-  - component: {fileID: 77313231}
   m_Layer: 5
   m_Name: Credit
   m_TagString: Untagged
@@ -152,11 +151,11 @@ RectTransform:
   m_LocalScale: {x: 1.6385415, y: 3.277083, z: 1.6385415}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1040289611}
+  m_Father: {fileID: 1827604326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -233, y: 81}
+  m_AnchoredPosition: {x: -233, y: -409}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &77313227
@@ -225,7 +224,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 77313231}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: buttonScript, Assembly-CSharp
         m_MethodName: CreditButton
         m_Mode: 1
@@ -275,23 +274,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77313225}
   m_CullTransparentMesh: 1
---- !u!114 &77313231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77313225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17107b5b5527cb84cb6f6c52703366ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::buttonScript
-  btn1s: {fileID: 0}
-  btn2s: {fileID: 0}
-  btn3s: {fileID: 0}
-  loadingScreenEnable: {fileID: 0}
-  loadingScreens: {fileID: 0}
 --- !u!1 &320182902
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,13 +940,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1989105293}
-  - {fileID: 1768745444}
-  - {fileID: 1768298082}
-  - {fileID: 77313226}
   - {fileID: 1203815794}
   - {fileID: 787993117}
   - {fileID: 909423314}
   - {fileID: 1529500814}
+  - {fileID: 1827604326}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -983,7 +963,6 @@ GameObject:
   - component: {fileID: 1058939198}
   - component: {fileID: 1058939197}
   - component: {fileID: 1058939196}
-  - component: {fileID: 1058939199}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1052,19 +1031,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1058939199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1058939195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42168646fb0910745957590a81ead85f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::buttonSelect
-  button1: {fileID: 1768745446}
 --- !u!1 &1101585219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1844,7 +1810,6 @@ GameObject:
   - component: {fileID: 1768298085}
   - component: {fileID: 1768298084}
   - component: {fileID: 1768298083}
-  - component: {fileID: 1768298087}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -1864,11 +1829,11 @@ RectTransform:
   m_LocalScale: {x: 1.6385415, y: 3.277083, z: 1.6385415}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1040289611}
+  m_Father: {fileID: 1827604326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 235, y: 81}
+  m_AnchoredPosition: {x: 235, y: -409}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1768298083
@@ -1937,7 +1902,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1768298087}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: buttonScript, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
@@ -1987,23 +1952,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768298081}
   m_CullTransparentMesh: 1
---- !u!114 &1768298087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768298081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17107b5b5527cb84cb6f6c52703366ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::buttonScript
-  btn1s: {fileID: 0}
-  btn2s: {fileID: 0}
-  btn3s: {fileID: 0}
-  loadingScreenEnable: {fileID: 0}
-  loadingScreens: {fileID: 0}
 --- !u!1 &1768745443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,7 +1965,6 @@ GameObject:
   - component: {fileID: 1768745447}
   - component: {fileID: 1768745446}
   - component: {fileID: 1768745445}
-  - component: {fileID: 1768745449}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -2037,11 +1984,11 @@ RectTransform:
   m_LocalScale: {x: 1.6385415, y: 3.277083, z: 1.6385415}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1040289611}
+  m_Father: {fileID: 1827604326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 81}
+  m_AnchoredPosition: {x: 0, y: -409}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1768745445
@@ -2110,7 +2057,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1768745449}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: buttonScript, Assembly-CSharp
         m_MethodName: PlayButton
         m_Mode: 3
@@ -2160,21 +2107,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768745443}
   m_CullTransparentMesh: 1
---- !u!114 &1768745449
+--- !u!1 &1827604325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1827604326}
+  - component: {fileID: 1827604327}
+  m_Layer: 5
+  m_Name: buttonControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1827604326
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827604325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1768745444}
+  - {fileID: 1768298082}
+  - {fileID: 77313226}
+  m_Father: {fileID: 1040289611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 540}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1827604327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768745443}
+  m_GameObject: {fileID: 1827604325}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17107b5b5527cb84cb6f6c52703366ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::buttonScript
-  btn1s: {fileID: 1768745443}
-  btn2s: {fileID: 1768298081}
-  btn3s: {fileID: 77313225}
+  play: {fileID: 1768745443}
+  exit: {fileID: 1768298081}
+  credit: {fileID: 77313225}
   loadingScreenEnable: {fileID: 1529500813}
   loadingScreens: {fileID: 1529500818}
 --- !u!1 &1904300750
@@ -2190,7 +2176,7 @@ GameObject:
   - component: {fileID: 1904300752}
   - component: {fileID: 1904300751}
   m_Layer: 0
-  m_Name: 2
+  m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2526,7 +2512,7 @@ GameObject:
   - component: {fileID: 2075726017}
   - component: {fileID: 2075726016}
   m_Layer: 0
-  m_Name: 1
+  m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

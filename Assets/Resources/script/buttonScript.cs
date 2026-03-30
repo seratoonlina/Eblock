@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class buttonScript : MonoBehaviour
 {
-    public GameObject btn1s;
-    public GameObject btn2s;
-    public GameObject btn3s;
+    public GameObject play;
+    public GameObject exit;
+    public GameObject credit;
     public GameObject loadingScreenEnable;
     public Animator loadingScreens;
     public void PlayButton(int SceneIndex)
     {
-        btn1s.GetComponent<Button>().enabled = false;
-        btn2s.GetComponent<Button>().enabled = false;
-        btn3s.GetComponent<Button>().enabled = false;
+        play.GetComponent<Button>().enabled = false;
+        exit.GetComponent<Button>().enabled = false;
+        credit.GetComponent<Button>().enabled = false;
 
         loadingScreenEnable.SetActive(true);
         loadingScreens.SetTrigger("play");

@@ -11,8 +11,8 @@ public class catchBall : MonoBehaviour
     public bool onGoal = false;
     public Transform catchPoint;
     public bool IsHoldingKick = false;
+    
     bool ShootingCoolDown = false;
-    public Transform SpawnPoint;
 
     void Start()
     {
@@ -88,7 +88,7 @@ public class catchBall : MonoBehaviour
         }
     }
 
-    void shootBall()
+    public void shootBall()
     {
         if (ball != null && ShootingCoolDown == false)
         {
@@ -120,8 +120,8 @@ public class catchBall : MonoBehaviour
     {
         ball.isKinematic = false;
         ball.transform.SetParent(null);
+        ball.transform.position = Vector3.zero;
         catchPoint.GetComponent<BoxCollider>().isTrigger = false;
-        ball.transform.position = SpawnPoint.position;
         yield return new WaitForSeconds(cooldown);
         onGoal = false;
 

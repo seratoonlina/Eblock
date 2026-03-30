@@ -40,11 +40,6 @@ public class player1Script : MonoBehaviour
         running = context.performed;
     }
 
-    public void shootBall()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
