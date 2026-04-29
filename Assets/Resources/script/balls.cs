@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+  using Unity.VisualScripting;
 using UnityEngine;
 
 public class balls : MonoBehaviour
@@ -9,19 +9,22 @@ public class balls : MonoBehaviour
 
     public Transform Player1;
     public Transform Player2;
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.transform.GetComponent<goal1>() || other.transform.GetComponent<goal2>())
+        // 1. Cek Goal (Ditambah null check agar tidak error saat salah satu null)
+        if (other.GetComponent<goal1>() != null || other.GetComponent<goal2>() != null)
         {
-            Player1.position = Spawn1.position;
-            Player2.position = Spawn2.position;
-            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 1f, ForceMode.Impulse);
-            transform.position = LocationBall.position;
+            if (Player1 != null && Spawn1 != null) Player1.position = Spawn1.position;
+            if (Player2 != null && Spawn2 != null) Player2.position = Spawn2.position;
+
+            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
+            if (rb != null) rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+
+            if (LocationBall != null) transform.position = LocationBall.position;
             transform.SetParent(null);
         }
-        else if (other.transform.GetComponent<goal1>().transform.parent.GetComponent<player1Script>() || other.transform.GetComponent<goal1>().transform.parent.GetComponent<player1Script>())
-        {
-            FindAnyObjectByType<catchBall>().shootBall();
-        }
+        // 2. Cek Player (Bagian ini yang paling sering bikin Null Reference)
+        
     }
 }

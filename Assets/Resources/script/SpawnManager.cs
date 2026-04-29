@@ -26,6 +26,8 @@ public class SpawnManager : MonoBehaviour
                     player1 = SpawnPlayer(gamepad, spawnPoint1);
                     p1Spawned = true;
                     player1.GetComponent<Renderer>().material.color = Color.red;
+                    player1.transform.Find("character").gameObject.GetComponent<Renderer>().materials[0].color = Color.red;
+                    player1.transform.Find("character").gameObject.GetComponent<Renderer>().materials[1].color = Color.red;
                 }
                 // Player 2
                 else if (!p2Spawned && gamepad != player1.GetComponent<PlayerInput>().devices[0])
@@ -33,6 +35,8 @@ public class SpawnManager : MonoBehaviour
                     player2 = SpawnPlayer(gamepad, spawnPoint2);
                     p2Spawned = true;
                     player2.GetComponent<Renderer>().material.color = Color.blue;
+                    player2.transform.Find("character").gameObject.GetComponent<Renderer>().materials[0].color = Color.blue;
+                    player2.transform.Find("character").gameObject.GetComponent<Renderer>().materials[1].color = Color.blue;
                 }
             }
         }

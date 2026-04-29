@@ -14,6 +14,7 @@ public class openingStartScript : MonoBehaviour
     {
         spawn.GetComponent<SpawnManager>();
         BLOCKS.SetActive(true);
+        PlayerPrefs.DeleteAll();
         
     }
 

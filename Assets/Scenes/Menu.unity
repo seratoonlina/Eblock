@@ -943,8 +943,8 @@ RectTransform:
   - {fileID: 1203815794}
   - {fileID: 787993117}
   - {fileID: 909423314}
-  - {fileID: 1529500814}
   - {fileID: 1827604326}
+  - {fileID: 1529500814}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1902,7 +1902,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1827604327}
         m_TargetAssemblyTypeName: buttonScript, Assembly-CSharp
         m_MethodName: ExitButton
         m_Mode: 1
@@ -2057,7 +2057,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1827604327}
         m_TargetAssemblyTypeName: buttonScript, Assembly-CSharp
         m_MethodName: PlayButton
         m_Mode: 3

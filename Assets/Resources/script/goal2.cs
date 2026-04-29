@@ -6,9 +6,11 @@ public class goal2 : MonoBehaviour
 {
     public float score = 0;
     Transform balls;
+    
     public catchBall onGoals;
     public catchBall onGoalss;
     public Transform Spawn;
+    public GameObject ONGOAL_UI;
 
     void OnTriggerEnter(Collider other)
     {
@@ -17,12 +19,13 @@ public class goal2 : MonoBehaviour
         if (ballScript != null)
         {
             score += 1;
-
+            PlayerPrefs.SetFloat("blueScore", score);
             balls = other.transform;
             balls.position = Spawn.position;
 
-            FindAnyObjectByType<SpawnManager>().ResetPlayers();
-
+            ONGOAL_UI.SetActive(true);
+            
+            FindAnyObjectByType<scriptGOAL_UI>().getGOAL_UI();
             StartCoroutine(resetBallPosition(0.05f));
         }
     }
