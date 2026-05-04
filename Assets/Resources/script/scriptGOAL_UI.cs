@@ -9,6 +9,8 @@ public class scriptGOAL_UI : MonoBehaviour
     public GameObject BLOCKREDBLUE;
     public GameObject READYAGAIN;
     public GameObject TimerGOAL;
+    public AudioSource audioGOAL;
+    
     public void getGOAL_UI()
     {
         SOCCER_BALL.SetActive(false);
@@ -23,6 +25,11 @@ public class scriptGOAL_UI : MonoBehaviour
     public void TimerStop()
     {
         TimerGOAL.GetComponent<scriptTimer>().onORoffTIME = false;
+    }
+
+    public void playAudioGoal()
+    {
+        audioGOAL.Play();
     }
 
     public void RespawnStage()

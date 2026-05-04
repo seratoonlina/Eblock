@@ -4,10 +4,12 @@ using System.Collections;
 public class insideButtonPlay : MonoBehaviour
 {
     public GameObject loadingScreen;
+    public GameObject loadingScreenProgress;
 
-    public void COOP(int SceneIndex)
+    public void COOP()
     {
-        StartCoroutine(loadScene(SceneIndex));
+        loadingScreen.SetActive(true);
+        loadingScreen.GetComponent<Animator>().SetTrigger("coopON");
     }
     public void MultiPlayer()
     {
@@ -27,9 +29,11 @@ public class insideButtonPlay : MonoBehaviour
         {
             Debug.Log(" Loading Scene: " + operation.progress);
             loadingScreen.SetActive(true);
+            loadingScreenProgress.SetActive(true);
             yield return null;
         }
-        loadingScreen.SetActive(false);
+
+        loadingScreen.SetActive(true);
         
     }
 }

@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 public class pluginSystem : MonoBehaviour
 {
 
@@ -12,7 +13,11 @@ public class pluginSystem : MonoBehaviour
     public GameObject GUIButtonStartB;
     public GameObject check1;
     public GameObject check2;
+    public GameObject tutorial1;
+    public GameObject tutorial2;
+    public GameObject LoadingAni;
     public int gamepadPlugin;
+    float perdetik = 3;
     InputMenu PlayTheGame;
     
     public static Gamepad player1;
@@ -58,6 +63,7 @@ public class pluginSystem : MonoBehaviour
     void OnDeviceChange()
     {
          gamepadPlugin = Gamepad.all.Count;
+
          if (gamepadPlugin >= 2)
          {
             GUIButtonStartB.GetComponent<Image>().color = Color.white;
@@ -89,7 +95,7 @@ public class pluginSystem : MonoBehaviour
     {
         if (gamepadPlugin >= 2)
         {
-            StartLoading();
+            Starttutorial();
         }
         else if (gamepadPlugin < 2)
         {
@@ -97,11 +103,20 @@ public class pluginSystem : MonoBehaviour
         }
     }
 
-    void StartLoading()
+    void Starttutorial()
     {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        tutorial1.SetActive(true);
+    }
+    public void Starttutorial2()
+    {
+        tutorial2.SetActive(true);
     }
 
+    public void startTutorialPlay3()
+    {
+        LoadingAni.SetActive(true);
+        LoadingAni.GetComponent<Animator>().SetTrigger("on");
+    }
     void NotStarting()
     {
         Debug.Log("need 2 gamepad");

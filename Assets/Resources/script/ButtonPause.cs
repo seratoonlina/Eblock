@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonPause : MonoBehaviour
 {
-
+    public GameObject backloadingQUIT;
+    public GameObject settings;
+    public Slider selectbuttonSettingFirst;
     public void resume()
     {
         FindAnyObjectByType<PauseScript>().getResume();
@@ -11,12 +14,17 @@ public class ButtonPause : MonoBehaviour
 
     public void setting()
     {
-        //ComingSoon
+        settings.SetActive(true);
+        if (settings.activeSelf)
+        {
+            selectbuttonSettingFirst.Select();
+        }
     }
 
-    public void restart()
+    public void quit()
     {
         FindAnyObjectByType<PauseScript>().getResume();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        backloadingQUIT.SetActive(true);
+        backloadingQUIT.GetComponent<Animator>().SetTrigger("coopON");
     }
 }

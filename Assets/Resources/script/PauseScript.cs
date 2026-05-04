@@ -15,7 +15,11 @@ public class PauseScript : MonoBehaviour
     {
         menuSetting = new InputMenu();
         menuSetting.Movement.Pause.performed += ctx => isPause = true;
-        menuSetting.Movement.Back.canceled += ctx => isPause = false;
+    }
+
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
