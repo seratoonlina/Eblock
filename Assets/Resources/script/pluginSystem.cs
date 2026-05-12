@@ -59,6 +59,14 @@ public class pluginSystem : MonoBehaviour
         OnDeviceChange();
     }
 
+    public void OnKeyboardDetect(InputAction.CallbackContext context)
+    {
+        if(context.performed)
+        {
+            Debug.Log("Keyboard Detected");
+        }
+    }
+
 
     void OnDeviceChange()
     {
@@ -87,6 +95,8 @@ public class pluginSystem : MonoBehaviour
             GUIWarningBlue.GetComponent<TextMeshProUGUI>().text = "OFF";
             GUIWarningRed.GetComponent<TextMeshProUGUI>().text = "OFF";
             GUIButtonStart.GetComponent<TextMeshProUGUI>().text = "NEED 2 PLUGIN BEFORE PLAYING";
+
+            
          }
            
     }

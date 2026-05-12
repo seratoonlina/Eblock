@@ -127,6 +127,15 @@ public partial class @InputMenu: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""KeyboardDetect"",
+                    ""type"": ""Button"",
+                    ""id"": ""61701cba-15fd-446a-a7e7-61a9596c9626"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -186,9 +195,75 @@ public partial class @InputMenu: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""c85c3547-0ef8-4baf-97ac-898a7ddec190"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""9d713a60-2fab-461f-becc-fa2c9c141961"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""3091d886-6328-45df-abd0-6fe0cf19c4b5"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""248c0e0c-916d-4aae-802d-aca6737e591a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e6a6ba6d-07a9-4e3a-833f-5026a7bac65c"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""049faa08-3627-4b1d-b222-052215dd40db"",
                     ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8f26288-87f4-4743-97ae-106c5decfaad"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -209,12 +284,45 @@ public partial class @InputMenu: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""37c8b73d-7abf-49cc-8354-b2fdd7686f96"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""0eae4138-7829-4ada-995c-48ba37881d33"",
                     ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b11ce793-64d6-4ef5-8fe5-5a9f9f62e2c7"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ff4fd40-b223-4b7f-bf1c-7c98859631c0"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""KeyboardDetect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -229,6 +337,7 @@ public partial class @InputMenu: IInputActionCollection2, IDisposable
         m_Movement_Submit = m_Movement.FindAction("Submit", throwIfNotFound: true);
         m_Movement_Back = m_Movement.FindAction("Back", throwIfNotFound: true);
         m_Movement_Pause = m_Movement.FindAction("Pause", throwIfNotFound: true);
+        m_Movement_KeyboardDetect = m_Movement.FindAction("KeyboardDetect", throwIfNotFound: true);
     }
 
     ~@InputMenu()
@@ -313,6 +422,7 @@ public partial class @InputMenu: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_Submit;
     private readonly InputAction m_Movement_Back;
     private readonly InputAction m_Movement_Pause;
+    private readonly InputAction m_Movement_KeyboardDetect;
     /// <summary>
     /// Provides access to input actions defined in input action map "Movement".
     /// </summary>
@@ -340,6 +450,10 @@ public partial class @InputMenu: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Movement/Pause".
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_Movement_Pause;
+        /// <summary>
+        /// Provides access to the underlying input action "Movement/KeyboardDetect".
+        /// </summary>
+        public InputAction @KeyboardDetect => m_Wrapper.m_Movement_KeyboardDetect;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -378,6 +492,9 @@ public partial class @InputMenu: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @KeyboardDetect.started += instance.OnKeyboardDetect;
+            @KeyboardDetect.performed += instance.OnKeyboardDetect;
+            @KeyboardDetect.canceled += instance.OnKeyboardDetect;
         }
 
         /// <summary>
@@ -401,6 +518,9 @@ public partial class @InputMenu: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @KeyboardDetect.started -= instance.OnKeyboardDetect;
+            @KeyboardDetect.performed -= instance.OnKeyboardDetect;
+            @KeyboardDetect.canceled -= instance.OnKeyboardDetect;
         }
 
         /// <summary>
@@ -469,5 +589,12 @@ public partial class @InputMenu: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "KeyboardDetect" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnKeyboardDetect(InputAction.CallbackContext context);
     }
 }
