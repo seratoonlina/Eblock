@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 public class backScript : MonoBehaviour
 {
     InputMenu menu;
-    bool OnBack;
+    public GameObject backLoading;
+    public bool OnBack;
     void OnEnable()
     {
         menu.Enable();
@@ -21,8 +22,15 @@ public class backScript : MonoBehaviour
     {
         if (OnBack)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            backLoading.SetActive(true);
+            backLoading.GetComponent<Animator>().SetTrigger("getBack");
+            
         }
     }
 
+    public void getbacknow()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        backLoading.SetActive(true);
+    }
 }
