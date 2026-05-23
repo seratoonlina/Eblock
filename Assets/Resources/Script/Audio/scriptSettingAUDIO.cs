@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class scriptSettingAUDIO : MonoBehaviour
 {
-    public AudioSource effect;
-    public AudioSource music;
-    public AudioSource sound;
+    public AudioSource SFXVol;
+    public AudioSource MusicVol;
+    public AudioSource MasterVol;
 
     public Slider s1;
 
@@ -18,13 +18,13 @@ public class scriptSettingAUDIO : MonoBehaviour
     // (misal dipanggil dari OnValueChanged milik Slider)
     void Update()
     {
-        float volEffect = PlayerPrefs.GetFloat("soundeffect", 0.5f);
-        float volMusic = PlayerPrefs.GetFloat("soundmusic", 0.5f);
-        float volMaster = PlayerPrefs.GetFloat("sound", 0.5f);
+        float volSFX = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
+        float volMusic = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        float volMaster = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
 
-        if (effect != null) effect.volume = volEffect;
-        if (music != null) music.volume = volMusic;
-        if (sound != null) sound.volume = volMaster;
+        if (SFXVol != null) SFXVol.volume = volSFX;
+        if (MusicVol != null) MusicVol.volume = volMusic;
+        if (MasterVol != null) MasterVol.volume = volMaster;
         
         Debug.Log("Volume Updated!");
     }

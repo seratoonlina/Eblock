@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AudioSettingsCOOPprepare : MonoBehaviour
+public class AudioSettingsCOOPPrepare : MonoBehaviour
 {
     
 
@@ -12,11 +12,6 @@ public class AudioSettingsCOOPprepare : MonoBehaviour
     [Header("SOUND")]
     public AudioSource sound;
 
-    [Header("SLIDER")]
-    public Slider s1;
-    public Slider s2;
-    public Slider s3;
-
     void Start()
     {
         music.Play();
@@ -24,9 +19,11 @@ public class AudioSettingsCOOPprepare : MonoBehaviour
 
     void Update()
     {
+        float volMusic = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        float volMaster = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
         // MUSIC :
-        music.volume = s2.value;
-        s2TEST = s2.value;
+        music.volume = volMusic * volMaster;
+        s2TEST = volMusic * volMaster;
 
         // SOUND :
         Debug.Log("Volume Updated!");

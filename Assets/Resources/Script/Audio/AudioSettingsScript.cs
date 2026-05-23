@@ -3,20 +3,18 @@ using UnityEngine.UI;
 
 public class AudioSettingscript : MonoBehaviour
 {
-    public GameObject settingPanel; 
-    public Slider soundEffect;
-    public Slider soundMusic;
-    public Slider sound;
+    public GameObject settingsPanel; 
+    public Slider SFXSlider;
+    public Slider MusicSlider;
+    public Slider MasterVol;
 
     void Awake()
     {
         // Tetap mengambil data saat scene mulai
-        soundEffect.value = PlayerPrefs.GetFloat("soundeffect", 0.5f);
-        soundMusic.value = PlayerPrefs.GetFloat("soundmusic", 0.5f);
-        sound.value = PlayerPrefs.GetFloat("sound", 0.5f);
-        settingPanel.SetActive(false);
-        
-        
+        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
+        MusicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        MasterVol.value = PlayerPrefs.GetFloat("MasterVolume", 0.5f);
+        settingsPanel.SetActive(false);
     }
 
     void Start(){
@@ -24,15 +22,17 @@ public class AudioSettingscript : MonoBehaviour
 
     public void ShowSetting()
     {
-        settingPanel.SetActive(true);
-        soundEffect.Select();
+        settingsPanel.SetActive(true);
+        SFXSlider.Select();
     }
 
     void Update()
     {
         // Tetap simpan data secara real-time
-        PlayerPrefs.SetFloat("soundeffect", soundEffect.value);
-        PlayerPrefs.SetFloat("soundmusic", soundMusic.value);
-        PlayerPrefs.SetFloat("sound", sound.value);
+        PlayerPrefs.SetFloat("SFXVolume", SFXSlider.value);
+        PlayerPrefs.SetFloat("MusicVolume", MusicSlider.value);
+        PlayerPrefs.SetFloat("MasterVolume", MasterVol.value);
     }
+
+
 }
